@@ -84,6 +84,7 @@ CAN_UMOUNT = static int can_umount(const struct path *path, int flags)\n\
         return 0;\n\
 }\n
 $(shell sed -i '/^static bool is_mnt_ns_file/i $(CAN_UMOUNT)' $(srctree)/fs/namespace.c;)
+endif
 
 # Determine the appropriate atomic function and apply patch accordingly
 ifeq ($(shell grep -q "atomic_inc_not_zero" $(srctree)/kernel/cred.c; echo $$?),0)
